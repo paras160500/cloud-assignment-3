@@ -37,13 +37,13 @@ let finalPublicKey = new NodeRSA(public_key)
 
 
 app.post('/decrypt' , async (req,res) => {
-    return res.send({
+    return res.status(200).send({
       "response" : finalPrivateKey.decrypt(req.body.message , 'utf8')
     })
 })
 
 app.post('/encrypt' , async (req,res) => {
-    return res.send({
+    return res.status(200).send({
       "response" : finalPublicKey.encrypt(req.body.message , 'base64')
     })
 })
